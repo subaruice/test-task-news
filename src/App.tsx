@@ -9,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout/>}>
             <Route index element={<Homepage/>}/>
+            <Route path="category/:categoryName" element={<Homepage/>}/>
       </Route>
     </Routes>
   )

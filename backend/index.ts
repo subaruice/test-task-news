@@ -12,7 +12,7 @@ app.use(cors({
 }))
 app.use(express.json())
 
-app.use('/', headlines)
+app.use('/news', headlines)
 
 app.listen(PORT, () => {
     console.log('server is running');
