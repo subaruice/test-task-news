@@ -8,9 +8,7 @@ import { ContextProvider } from "./Context.tsx";
 createRoot(document.getElementById("root")!).render(
     <HashRouter>
         <ContextProvider>
-            <StrictMode>
                 <App />
-            </StrictMode>
         </ContextProvider>
     </HashRouter>
 );

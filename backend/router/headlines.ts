@@ -19,18 +19,48 @@ router.get("/headlines", async (req, res) => {
     }
 });
 
+router.get("/sideItems", async (req, res) => {
+    try {
+        const result = await newsapi.v2.everything({
+            pageSize: 30,
+            sortBy: "publishedAt",
+            language: "en",
+            sources: "bbc-news, cnn, reuters, le-monde, time, the-guardian,",
+        });
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "error" });
+    }
+});
+
 router.get("/category/:categoryName", async (req, res) => {
     try {
         const categoryName = req.params.categoryName;
         const result = await newsapi.v2.topHeadlines({
             country: "us",
             pageSize: 30,
-            category: categoryName
+            category: categoryName,
         });
         res.json(result);
     } catch (err) {
         console.error(err);
-        res.status(500).json({message: 'error'})
+        res.status(500).json({ message: "error" });
+    }
+});
+
+router.get("/search", async (req, res) => {
+    try {
+        const q = req.query.q;
+        const result = await newsapi.v2.everything({
+            language: "en",
+            pageSize: 30,
+            q: q ? String(q) : "",
+        });
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "error" });
     }
 });
 

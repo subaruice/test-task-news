@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": false,               // отключаем строгую проверку
+    "skipLibCheck": true,          // не проверять типы в node_modules
+    "noImplicitAny": false         // не ругаться на any
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

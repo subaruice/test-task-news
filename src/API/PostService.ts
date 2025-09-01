@@ -20,6 +20,19 @@ const PostService = class PostService {
         });
         return response;
     }
+    static async getSideItems() {
+        const response = await axios.get(`http://localhost:3000/news/sideItems`);
+        return response;
+    }
+    static async getArticleByQuery(query?: string, pageSize?: number) {
+        const response = await axios.get(`http://localhost:3000/news/search`, {
+            params: {
+                q: query,
+                pageSize: pageSize,
+            },
+        });
+        return response;
+    }
 };
 
 export default PostService;

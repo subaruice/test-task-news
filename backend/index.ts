@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import headlines from './router/headlines.ts'; 
+import headlines from './router/headlines'; 
 
 dotenv.config()
 
